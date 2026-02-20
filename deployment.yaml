@@ -21,6 +21,11 @@ spec:
       containers:
       - name: web
         image: nginx:latest
+        envFrom:
+        - configMapRef:
+            name: web-configmap
+        - secretRef:
+            name: web-secret
         ports:
         - containerPort: 80
         resources:
